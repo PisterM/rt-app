@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT App</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="rt-app-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="left-panel">
+      <header class="app-header">
+        <div class="brand">
+          <img src="rt-app-icon.png" alt="" class="brand-icon">
+          <div>
+            <h1>RT App</h1>
+            <p>Reaction-time teaching/demo tool</p>
+          </div>
+        </div>
+        <div class="keyboard-help">
+          <span><b>Space</b> start</span>
+          <span><b>J</b> index</span>
+          <span><b>K</b> middle</span>
+          <span><b>L</b> ring</span>
+        </div>
+      </header>
+
+      <section class="card controls-card">
+        <div class="control-grid">
+          <label>
+            <span>Participant</span>
+            <input id="participantInput" type="text" value="Participant 1" autocomplete="off">
+          </label>
+
+          <label>
+            <span>RT Mode</span>
+            <select id="modeSelect">
+              <option value="simple">Simple RT</option>
+              <option value="choice">Choice RT</option>
+              <option value="discrimination">Discrimination RT</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Response action</span>
+            <select id="actionSelect">
+              <option value="release" selected>Release key</option>
+              <option value="press">Press key</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Trials</span>
+            <select id="trialsSelect">
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="button-row">
+          <button id="startButton" type="button">Start</button>
+          <button id="resetButton" type="button" class="secondary">Reset current test</button>
+          <button id="exportButton" type="button" class="secondary">Export CSV</button>
+        </div>
+      </section>
+
+      <section class="timer-card" aria-live="polite">
+        <div class="timer-label">Timer</div>
+        <div id="timerDisplay" class="timer-display">0.000</div>
+      </section>
+
+      <section class="stimulus-card">
+        <div id="stimulusArea" class="stimulus-area simple-mode" aria-label="Stimulus display">
+          <div class="circle-row">
+            <div class="circle-slot slot-red">
+              <div class="circle" data-color="red"></div>
+              <div class="key-label">J</div>
+            </div>
+            <div class="circle-slot slot-blue">
+              <div class="circle" data-color="blue"></div>
+              <div class="key-label">K</div>
+            </div>
+            <div class="circle-slot slot-green">
+              <div class="circle" data-color="green"></div>
+              <div class="key-label">L</div>
+            </div>
+          </div>
+        </div>
+        <div id="promptPrimary" class="prompt-primary">Ready</div>
+        <div id="promptSecondary" class="prompt-secondary">Press Space or Start to begin.</div>
+      </section>
+    </section>
+
+    <section class="right-panel">
+      <section class="card results-card">
+        <div class="section-header">
+          <h2>Current test</h2>
+          <span id="currentMeta">No test running</span>
+        </div>
+        <div class="table-wrap">
+          <table id="trialTable">
+            <thead>
+              <tr>
+                <th>Trial</th>
+                <th>Stimulus</th>
+                <th>Expected</th>
+                <th>Pressed/released</th>
+                <th>RT (s)</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card history-card">
+        <div class="section-header">
+          <h2>Completed test history</h2>
+          <span id="historyMeta">0 runs</span>
+        </div>
+        <div class="table-wrap">
+          <table id="historyTable">
+            <thead>
+              <tr>
+                <th>Run number</th>
+                <th>Participant</th>
+                <th>RT Mode</th>
+                <th>Action</th>
+                <th>Trials done</th>
+                <th>Correct Trials</th>
+                <th>Incorrect Trials</th>
+                <th>Mean RT (s)</th>
+                <th>SD (s)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
