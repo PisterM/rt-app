@@ -1,4 +1,4 @@
-RT App Web v1.0
+RT App Web v1.4
 
 This is a static browser version of RT App.
 
@@ -26,5 +26,6 @@ How to put on GitHub Pages:
 
 Notes:
 - Results export as CSV.
+- v1.1 improves the maximised-window layout, gives more space to the left-side stimulus/timer panel, and wraps table headings to reduce horizontal overflow.
 - The app does not send or store data online. Results remain in the browser unless exported.
 - Timing uses performance.now(), but browser/keyboard/OS timing is not lab-grade.
